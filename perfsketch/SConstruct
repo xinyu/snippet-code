@@ -1,0 +1,29 @@
+import os
+env = Environment()
+env.Append(CPPFLAGS=['-Wall',
+                     '-O2',
+                     '-D_REENTRANT',
+                     '-g',
+                     '-D_GNU_SOURCE'])
+
+env.Append(CPPPATH = ['/include', 
+                      '/usr/local/include', 
+                      '/usr/include', 
+                      '.'])
+
+env.Append(LIBS = [
+                   'pthread',
+                   'dl',
+                   'm'])
+
+env.Append(LIBPATH = [ 
+                       '/usr/lib', 
+                       '/usr/local/lib'])
+
+env.Append(RPATH = ['.', 
+                    '/usr/lib'])
+
+
+env.Program('perfsk', ['perfsk.cpp'])
+
+
